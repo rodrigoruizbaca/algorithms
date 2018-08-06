@@ -21,4 +21,15 @@ public class CommonLongestTest {
         assertEquals(3, res.length());
         assertEquals("hol", res);
 	}
+	
+	@Test
+	public void test3() {
+		CommonLongestI common = new CommonLongest();
+        String res = common.getCommonLongestSubstr("banana");
+        assertEquals("na", res);
+        
+        res = common.getCommonLongestSubstr("banaana");
+        assertEquals("ana", res);
+ 
+	}
 }

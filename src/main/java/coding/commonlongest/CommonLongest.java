@@ -27,4 +27,27 @@ public class CommonLongest implements CommonLongestI {
 		return common;
 	}
 
+	@Override
+	public String getCommonLongestSubstr(String s1) {
+		String suffixTable[] = new String[s1.length()];		
+		for (int x = 0; x < s1.length(); x++) {
+			suffixTable[x] = s1.substring(x, s1.length());
+		}
+		String common = "";
+		int max = 1;
+		for (String suffix: suffixTable) {
+			int count = 0;
+			int idx = 0;
+			while ((idx = s1.indexOf(suffix, idx)) >= 0) {
+				idx += suffix.length();
+				count++;
+			}
+			if (count > max && common.length() < suffix.length()) {
+				max = count;
+				common = suffix;
+			}
+		}		
+		return common.isEmpty() ? s1 : common;
+	}
+
 }
