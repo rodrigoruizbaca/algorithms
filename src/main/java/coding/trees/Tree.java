@@ -1,7 +1,7 @@
 package coding.trees;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Tree implements TreeI {
 
@@ -36,30 +36,23 @@ public class Tree implements TreeI {
 	}
 
 	@Override
-	public String levelOrder(Node n) {
-		List<Node> arr = new ArrayList<>();
-		arr.add(n);
-		helper(n, arr);		
+	public String levelOrder(Node root) {
+		Deque<Node> arr = new ArrayDeque<>();
+		arr.add(root);
 		String str = "";
-		for (Node x: arr) {
-			str += x.data + " ";
-		}
+		while (!arr.isEmpty()) {
+			Node n = arr.poll();
+			if (n.left != null) {
+				arr.add(n.left);
+			}
+			if (n.right != null) {
+				arr.add(n.right);
+			}
+			str += n.data + " ";
+		}	
 		return str.substring(0, str.length()-1);
 	}
 	
-	private void helper(Node root, List<Node> arr) {
-		if (root == null) return;
-		if (root.left != null) {
-			arr.add(root.left);			
-		}
-		if (root.right != null) {
-			arr.add(root.right);			
-		}
-		helper(root.left, arr);
-		helper(root.right, arr);
-		
-	}
-
 	@Override
 	public int height(Node root) {
 		if (root == null) return 0;
