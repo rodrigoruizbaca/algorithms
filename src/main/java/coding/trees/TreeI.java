@@ -1,5 +1,7 @@
 package coding.trees;
 
+import java.util.List;
+
 public interface TreeI {
 	default Node insert(Node n, int data) {
 		if (n == null) {
@@ -18,6 +20,7 @@ public interface TreeI {
 	String preOrder(Node n);
 	String postOrder(Node n);
 	String inOrder(Node n);
+	List<Integer> inOrderAlt(Node n);
 	String levelOrder(Node n); //Breadth First Traversal
 	int height(Node root);
 }

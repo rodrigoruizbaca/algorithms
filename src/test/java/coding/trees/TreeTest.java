@@ -1,7 +1,11 @@
 package coding.trees;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class TreeTest {
 	@Test
@@ -41,6 +45,21 @@ public class TreeTest {
 		tree.insert(tres, 4);
 		String res = tree.inOrder(root);
 		assertEquals("1 2 3 4 5 6", res);
+		
+		List<Integer> lstRes = tree.inOrderAlt(root);
+		List<Integer> lstExp = new ArrayList<>();
+		lstExp.add(1);
+		lstExp.add(2);
+		lstExp.add(3);
+		lstExp.add(4);
+		lstExp.add(5);
+		lstExp.add(6);
+		assertEquals(lstExp.get(0), lstRes.get(0));
+		assertEquals(lstExp.get(1), lstRes.get(1));
+		assertEquals(lstExp.get(2), lstRes.get(2));
+		assertEquals(lstExp.get(3), lstRes.get(3));
+		assertEquals(lstExp.get(4), lstRes.get(4));
+		assertEquals(lstExp.get(5), lstRes.get(5));
 	}
 	
 	@Test

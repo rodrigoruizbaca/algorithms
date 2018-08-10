@@ -1,7 +1,9 @@
 package coding.trees;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 public class Tree implements TreeI {
 
@@ -59,6 +61,17 @@ public class Tree implements TreeI {
 		int left = height(root.left);
 		int right = height(root.right);			
 		return Math.max(left, right) + 1;
+	}
+
+	@Override
+	public List<Integer> inOrderAlt(Node n) {
+		List<Integer> result = new ArrayList<>();
+		if (n != null) {			
+			result.addAll(inOrderAlt(n.left));
+			result.add(n.data);
+			result.addAll(inOrderAlt(n.right));			
+		}
+		return result;
 	}
 	
 	
