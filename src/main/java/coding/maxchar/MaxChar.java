@@ -9,12 +9,8 @@ public class MaxChar implements MaxCharI {
 		Map<Character, Integer> map = new HashMap<>();
 		
 		for (char c: str.toCharArray()) {
-			map.computeIfAbsent(c, (key) -> {
-				return 1;
-			});
-			map.computeIfPresent(c, (key, val) -> {
-				return val++;
-			});
+			map.merge(c, 1, (existingVal, newVal) -> ++existingVal);
+			
 		}
 		int max = 0;
 		Character maxChar = null;
