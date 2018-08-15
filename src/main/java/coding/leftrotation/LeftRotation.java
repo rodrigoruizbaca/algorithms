@@ -12,4 +12,8 @@ public class LeftRotation implements LeftRotationI {
 		return res;
 	}
 
+	/*for(int x = 0; x <= array.length-1; x++){
+		newArray[(x+a) % array.length ] = array[x];
+	}*/
+
 }
