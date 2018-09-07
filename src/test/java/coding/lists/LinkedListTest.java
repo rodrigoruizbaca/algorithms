@@ -38,4 +38,13 @@ public class LinkedListTest {
 		boolean res = list.hasCycle(head);
 		assertEquals(true, res);
 	}
+	@Test
+	public void testHasCycle13() {
+		LinkedListI list = new LinkedList();
+		Node head = list.insertNode(null, 1);
+		head.next = new Node(1);
+		head.next.next = new Node(3);
+		boolean res = list.hasCycle(head);
+		assertEquals(true, res);
+	}
 }
