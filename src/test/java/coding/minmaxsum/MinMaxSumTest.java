@@ -1,10 +1,21 @@
 package coding.minmaxsum;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.lang.reflect.Constructor;
 import java.math.BigInteger;
+
+import org.junit.Before;
+import org.junit.Test;
 public class MinMaxSumTest {
-	MinMaxSumI minMax = new MinMaxSum();
+	MinMaxSumI minMax;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.minmaxsum.MinMaxSum");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		minMax = (MinMaxSumI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

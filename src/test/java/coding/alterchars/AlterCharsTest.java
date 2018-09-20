@@ -1,11 +1,23 @@
 package coding.alterchars;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class AlterCharsTest {
 	
-	AlterCharsI alter = new AlterChars();
+	AlterCharsI alter = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.alterchars.AlterChars");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		alter = (AlterCharsI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

@@ -1,10 +1,21 @@
 package coding.encrypt;
 import static org.junit.Assert.assertEquals;
 
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
 import org.junit.Test;
 public class EncryptTest {
 	
-	EncryptI encrypt = new Encrypt();
+	EncryptI encrypt = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.encrypt.Encrypt");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		encrypt = (EncryptI)
+				constructors[0].newInstance();
+	}
 	
 	@Test()
 	public void test1() {
@@ -22,7 +33,6 @@ public class EncryptTest {
 	
 	@Test
 	public void test3() {
-		EncryptI encrypt = new Encrypt();
 		String res = encrypt.encryption("feedthedog");
 		assertEquals("fto ehg ee dd", res);
 	}

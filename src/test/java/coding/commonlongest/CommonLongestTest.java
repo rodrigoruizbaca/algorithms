@@ -1,9 +1,21 @@
 package coding.commonlongest;
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 public class CommonLongestTest {
 	
-	CommonLongestI common = new CommonLongest();
+	CommonLongestI common = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.commonlongest.CommonLongest");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		common = (CommonLongestI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

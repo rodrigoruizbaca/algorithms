@@ -1,14 +1,24 @@
 package coding.chessboard;
 import static org.junit.Assert.assertTrue;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 public class ChessBoardTest {
 	
-	ChessBoardI board = new ChessBoard();
+	ChessBoardI board = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.chessboard.ChessBoard");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		board = (ChessBoardI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

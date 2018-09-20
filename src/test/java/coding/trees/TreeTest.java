@@ -2,14 +2,24 @@ package coding.trees;
 
 import static org.junit.Assert.assertEquals;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TreeTest {
 	
-	TreeI tree = new Tree();
+	TreeI tree;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.trees.Tree");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		tree = (TreeI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void testPreorder() {

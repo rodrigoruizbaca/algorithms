@@ -1,11 +1,23 @@
 package coding.diagonaldiff;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class DiagonalDiffTest {
 	
-	DiagonalDiffI diff = new DiagonalDiff();
+	DiagonalDiffI diff = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.diagonaldiff.DiagonalDiff");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		diff = (DiagonalDiffI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() throws Exception {

@@ -1,9 +1,21 @@
 package coding.plusminus;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 public class PlusMinusTest {
-	PlusMinusI plusMinus = new PlusMinus();
+	PlusMinusI plusMinus;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.plusminus.PlusMinus");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		plusMinus = (PlusMinusI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

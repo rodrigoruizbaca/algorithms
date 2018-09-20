@@ -1,8 +1,20 @@
 package coding.stairs;
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 public class StairsTest {
-	StairsI stairs = new StarisRec();
+	StairsI stairs;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.stairs.StarisRec");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		stairs = (StairsI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

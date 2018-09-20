@@ -1,16 +1,23 @@
 package coding.superdigit;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 
 public class SuperDigitTest {
 	SuperDigitI instance;
 	
 	@Before
-	public void init() {
-		instance = new SuperDigit();
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.superdigit.SuperDigit");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		instance = (SuperDigitI)
+				constructors[0].newInstance();
 	}
+
 	
 	@Test
 	public void test1() {

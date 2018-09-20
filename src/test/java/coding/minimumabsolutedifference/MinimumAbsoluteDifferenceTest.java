@@ -2,6 +2,8 @@ package coding.minimumabsolutedifference;
 
 import static org.junit.Assert.assertEquals;
 
+import java.lang.reflect.Constructor;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,8 +12,11 @@ public class MinimumAbsoluteDifferenceTest {
 	MinimumAbsoluteDifferenceI instance;
 	
 	@Before
-	public void init() {
-		instance = new MinimumAbsoluteDifference();
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.minimumabsolutedifference.MinimumAbsoluteDifference");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		instance = (MinimumAbsoluteDifferenceI)
+				constructors[0].newInstance();
 	}
 	
 	@Test

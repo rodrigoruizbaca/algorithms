@@ -1,11 +1,23 @@
 package coding.validstring;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class ValidStringTest {
 	
-	ValidStringI valid = new ValidString();
+	ValidStringI valid;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.validstring.ValidString");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		valid = (ValidStringI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

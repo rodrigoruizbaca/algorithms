@@ -1,12 +1,23 @@
 package coding.specialpalindrome;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class SpecialPalindromeTest {
 	
-	SpecialPalindromeI special = new SpecialPalindrome();
+	SpecialPalindromeI special;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.specialpalindrome.SpecialPalindrome");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		special = (SpecialPalindromeI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {

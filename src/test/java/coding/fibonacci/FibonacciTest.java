@@ -1,11 +1,23 @@
 package coding.fibonacci;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class FibonacciTest {
 	
-	FibonacciI fib = new Fibonacci();
+	FibonacciI fib = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.fibonacci.Fibonacci");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		fib = (FibonacciI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test() {

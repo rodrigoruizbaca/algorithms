@@ -1,11 +1,23 @@
 package coding.lists;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Constructor;
+
+import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class LinkedListTest {
 	
-	LinkedListI list = new LinkedList();
+	LinkedListI list = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.lists.LinkedList");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		list = (LinkedListI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void testHasCycle() {

@@ -1,11 +1,23 @@
 package coding.chunk;
+import static org.junit.Assert.assertArrayEquals;
+
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
-import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class ChunkTest {
-	ChunkI chunk = new Chunk(); 
+	ChunkI chunk = null;
+	
+	@Before
+	public void init() throws Exception {
+		Class<?> clazz =  Class.forName("coding.chunk.Chunk");
+		Constructor<?>[] constructors = clazz.getConstructors();
+		chunk = (ChunkI)
+				constructors[0].newInstance();
+	}
 	
 	@Test
 	public void test1() {
