@@ -4,9 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class FactorialTest {
+	
+	FactorialI fact = new Factorial();
+	
 	@Test
 	public void testRec() {
-		FactorialI fact = new Factorial();
+		
 		int res = fact.factorial(5);
 		assertEquals(120, res);
 	}

@@ -8,9 +8,12 @@ import java.util.List;
 import org.junit.Test;
 
 public class TreeTest {
+	
+	TreeI tree = new Tree();
+	
 	@Test
 	public void testPreorder() {
-		TreeI tree = new Tree();
+		
 		Node root = tree.insert(null, 1);
 		Node dos = tree.insert(root, 2);
 		Node cinco = tree.insert(dos, 5);
@@ -23,7 +26,6 @@ public class TreeTest {
 	
 	@Test
 	public void testPostorder() {
-		TreeI tree = new Tree();
 		Node root = tree.insert(null, 1);
 		Node dos = tree.insert(root, 2);
 		Node cinco = tree.insert(dos, 5);
@@ -36,7 +38,6 @@ public class TreeTest {
 	
 	@Test
 	public void testInorder() {
-		TreeI tree = new Tree();
 		Node root = tree.insert(null, 1);
 		Node dos = tree.insert(root, 2);
 		Node cinco = tree.insert(dos, 5);
@@ -64,7 +65,6 @@ public class TreeTest {
 	
 	@Test
 	public void testlevelOrder() {
-		TreeI tree = new Tree();
 		Node root = tree.insert(null, 1);
 		Node dos = tree.insert(root, 2);
 		Node cinco = tree.insert(dos, 5);
@@ -78,7 +78,6 @@ public class TreeTest {
 	
 	@Test
 	public void testHeigth() {
-		TreeI tree = new Tree();
 		Node root = tree.insert(null, 1);
 		Node dos = tree.insert(root, 2);
 		Node cinco = tree.insert(dos, 5);
@@ -91,7 +90,6 @@ public class TreeTest {
 	
 	@Test
 	public void testHeigth1() {
-		TreeI tree = new Tree();
 		Node root = tree.insert(null, 1);
 		root = new Node(1);
 		root.left = new Node(2);

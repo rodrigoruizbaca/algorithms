@@ -2,9 +2,12 @@ package coding.commonlongest;
 import org.junit.Test;
 import static org.junit.Assert.*;
 public class CommonLongestTest {
+	
+	CommonLongestI common = new CommonLongest();
+	
 	@Test
 	public void test1() {
-		CommonLongestI common = new CommonLongest();
+		
 		String s1 = "OldSite:GeeksforGeeks.org";
         String s2 = "NewSite:GeeksQuiz.com";
         String res = common.getCommonLongest(s1, s2);
@@ -14,7 +17,7 @@ public class CommonLongestTest {
 	
 	@Test
 	public void test2() {
-		CommonLongestI common = new CommonLongest();
+		
 		String s1 = "hola";
         String s2 = "holi";
         String res = common.getCommonLongest(s1, s2);
@@ -24,7 +27,7 @@ public class CommonLongestTest {
 	
 	@Test
 	public void test3() {
-		CommonLongestI common = new CommonLongest();
+		
         String res = common.getCommonLongestSubstr("banana");
         assertEquals("na", res);
         

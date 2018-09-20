@@ -4,9 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
 public class BalancedTest {
+	
+	BalancedI bal = new Balanced();
+	
 	@Test
 	public void test() {
-		BalancedI bal = new Balanced();
+		
 		boolean resp = bal.isBalanaced("{[()]}");
 		assertTrue(resp);
 	}

@@ -4,9 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class LinkedListTest {
+	
+	LinkedListI list = new LinkedList();
+	
 	@Test
 	public void testHasCycle() {
-		LinkedListI list = new LinkedList();
+		
 		Node head = list.insertNode(null, 1);
 		head.next = new Node(2);
 		head.next.next = new Node(3);
@@ -17,7 +20,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void testHasCycle1() {
-		LinkedListI list = new LinkedList();
+		
 		Node head = list.insertNode(null, 1);
 		head.next = new Node(2);
 		head.next.next = new Node(3);
@@ -29,7 +32,7 @@ public class LinkedListTest {
 	
 	@Test
 	public void testHasCycle12() {
-		LinkedListI list = new LinkedList();
+		
 		Node head = list.insertNode(null, 1);
 		head.next = new Node(2);
 		head.next.next = new Node(3);
@@ -40,7 +43,7 @@ public class LinkedListTest {
 	}
 	@Test
 	public void testHasCycle13() {
-		LinkedListI list = new LinkedList();
+		
 		Node head = list.insertNode(null, 1);
 		head.next = new Node(1);
 		head.next.next = new Node(3);

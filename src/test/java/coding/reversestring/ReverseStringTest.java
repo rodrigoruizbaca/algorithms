@@ -5,15 +5,15 @@ import static org.junit.Assert.*;
 
 public class ReverseStringTest {
 	
+	ReverseStringI rev = new ReverseStringImpl();
+	
 	@Test
-	public void test1() {
-		ReverseStringI rev = new ReverseStringImpl();
+	public void test1() {		
 		assertEquals("dcba", rev.reverse("abcd"));
 	}
 	
 	@Test
 	public void test2() {
-		ReverseStringI rev = new ReverseStringImpl();
 		assertEquals("dcba  ", rev.reverse("  abcd"));
 	}
 }
