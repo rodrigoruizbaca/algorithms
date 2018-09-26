@@ -1,7 +1,10 @@
 package coding.lists;
 
+import static org.junit.Assert.assertEquals;
+
+
+
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class LinkedListTest {
 	
@@ -48,6 +51,6 @@ public class LinkedListTest {
 		head.next = new Node(1);
 		head.next.next = new Node(3);
 		boolean res = list.hasCycle(head);
-		assertEquals(true, res);
+		assertEquals(false, res);
 	}
 }
